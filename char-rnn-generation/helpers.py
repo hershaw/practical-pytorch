@@ -14,8 +14,9 @@ all_characters = string.printable
 n_characters = len(all_characters)
 
 def read_file(filename):
-    file = unidecode.unidecode(open(filename).read())
-    return file, len(file)
+    with open(filename, encoding='utf-8') as fh:
+        f = fh.read()
+    return f, len(f)
 
 # Turning a string into a tensor
 
